@@ -1,0 +1,15 @@
+name: Ping Supabase
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl
+        run: |
+          set -e
+          curl -sS -o /dev/null -w "%{http_code}\n" "https://mddyomibqbmnpexwgkug.supabase.co"
